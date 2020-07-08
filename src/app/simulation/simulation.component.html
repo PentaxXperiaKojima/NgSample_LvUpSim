@@ -1,0 +1,30 @@
+<hr>
+<p class="text-center">DefaultValue / Growth</p>
+
+<div name="nameLvSetArea" class="row">
+  <label class="col-sm-3">characterName：</label><input type="text" class="col-sm-3 form-control"
+    style="margin-bottom: 5px;" [(ngModel)]="unit.name" maxlength='20'>
+  <label class="col-sm-3">lv：</label><input type="number" class="col-sm-3 form-control" [(ngModel)]="unit.lv" max="20">
+</div>
+
+<div *ngFor="let unit of characterStatus">
+  <app-parameter (event)="onReceiveEventFromChild($event)" [paramName]="unit.paramName" [growth]="unit.growth"
+    [status]="unit.value" class="row"></app-parameter>
+</div>
+<hr>
+<div name="nameLvViewArea" class="row">
+  <label class="col-sm-3">characterName：</label><label class="col-sm-9 ">{{unit.name}}</label>
+  <label class="col-sm-3">lv：</label><label class="col-sm-9">{{unit.lv}}</label>
+</div>
+
+<div *ngFor="let unit of characterStatus">
+  <app-result [paramName]="unit.paramName" [value]="unit.value + unit.upValue" [upFlg]="unit.upFlg" class="row">
+  </app-result>
+</div>
+<div class="row">
+
+  <button class="btn-primary btn-sm col-sm-4 " (click)="lvUp()">LevelUp</button>
+  <button class="btn-light btn-sm col-sm-4" (click)="classChange()">ClassChange</button>
+  <button class="btn-primary btn-sm col-sm-4" (click)="reset()">Reset</button>
+
+</div>

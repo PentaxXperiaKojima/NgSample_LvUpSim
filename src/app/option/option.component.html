@@ -1,0 +1,12 @@
+
+  <div *ngFor="let unit of options">
+    <label class="col-sm-6">{{unit.paramName}} Bonus：</label><input type="number" class="col-sm-6"
+      [(ngModel)]="unit.classChangeBonus">
+  </div>
+
+<hr>
+  <div *ngFor="let unit of options">
+    <label class="col-sm-6">{{unit.paramName}} Max：</label><input type="number" class="col-sm-6"
+      [(ngModel)]="unit.maxValue">
+  </div>
+
